@@ -33,6 +33,7 @@ const navbar_list = document.getElementById("navbar__list");
  * Append the item to navList
  */ 
 function createMenu(){
+    const fragment = document.createDocumentFragment();
     // Loop through each section and create a menu item for it
     sections.forEach(function(section){
         const listItem = document.createElement("li");
@@ -41,8 +42,11 @@ function createMenu(){
         const sec_title = section.getAttribute('data-nav');
         // Set the menu item attributes and content
         listItem.innerHTML = `<a class="menu__link" href="#${sec_id}">${sec_title}</a>`;
+        // Add the section to fragment
+        fragment.appendChild(listItem);
+        
         // Append the item to navList
-        navbar_list.appendChild(listItem);
+        navbar_list.appendChild(fragment);
     });
 }
 
