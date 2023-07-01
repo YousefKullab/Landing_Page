@@ -216,6 +216,12 @@ section.your-active-class h2{
     color: #cc1 !important;
 }
 
+/* change to values of active class to show navigation link more clear */
+.menu__link.active{
+    color: rgb(255, 255, 9) !important;
+    background-color: #000;
+}
+
 /* Section Active Styles Keyframe Animations */
 @keyframes rotate {
 	from {

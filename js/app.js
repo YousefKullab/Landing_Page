@@ -50,8 +50,9 @@ function createMenu(){
 // Add class 'active' to section when near top of viewport
 /*** Setps
  * Loop through each section and get rect bounding client of section
- * remove active class from all sections use classList()
- * checks if the section is near the top half of the viewport then add active class to section
+ * Remove active class from all sections use classList()
+ * Checks if the section is near the top half of the viewport
+ * Add active class to section
 */
 function setActive(){
     // Loop through each section and get rect bounding client of section
@@ -59,8 +60,28 @@ function setActive(){
         const rect = section.getBoundingClientRect();
         // remove active class from all sections use classList()
         section.classList.remove("your-active-class");
-        // check
+
+        /*** Add an active state to your navigation items 
+         * Check if the section is in the viewpost
+         * Get the navLink of this section
+         * Remove all active class from navLinks for all other sections
+         * Add the active class to the navigation link of the active section
+         */
+        // Check
         if (rect.top >= 0 && rect.top <= window.innerHeight * 0.5) {
+
+            // Get the navLink of this section
+            const navLink = navbar_list.querySelector(`a[href="#${section.id}"]`);
+            // Remove all active class from navLinks for all other sections
+            navbar_list.querySelectorAll("a").forEach(function(link){
+                link.classList.remove("active");
+            });
+            // Add the active class to the navigation link of the active section
+            if(navLink){
+                navLink.classList.add("active");
+            }
+
+            // Add active class to section
             section.classList.add("your-active-class");
         }
     });
