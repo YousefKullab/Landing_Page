@@ -208,6 +208,11 @@ section.your-active-class .landing__container::after {
     animation: rotate 5s linear 0s infinite forwards reverse;
 }
 
+/* change to values of active class to show the current section more clear */
+section.your-active-class{
+    background: linear-gradient(0deg, rgb(28, 219, 127) 0%, rgb(35, 57, 138) 100%);
+}
+
 /* Section Active Styles Keyframe Animations */
 @keyframes rotate {
 	from {
@@ -221,3 +226,4 @@ section.your-active-class .landing__container::after {
 		           rotate(-360deg);
 	}
 }
+

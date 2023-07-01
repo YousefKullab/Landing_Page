@@ -30,10 +30,10 @@ const navbar_list = document.getElementById("navbar__list");
 // Main Functions
 // build the nav
 /*** Setps
- * # Loop through each section and create a menu item for it
- * # Get the id of the section and name of section from data-nav
- * # Set the menu item attributes and content
- * # Append the item to navList
+ * Loop through each section and create a menu item for it
+ * Get the id of the section and name of section from data-nav
+ * Set the menu item attributes and content
+ * Append the item to navList
  */ 
 function createMenu(){
     // Loop through each section and create a menu item for it
@@ -51,6 +51,25 @@ function createMenu(){
 
 
 // Add class 'active' to section when near top of viewport
+/*** Setps
+ * Loop through each section and get rect bounding client of section
+ * remove active class from all sections use classList()
+ * checks if the section is near the top half of the viewport then add active class to section
+*/
+function setActive(){
+    // Loop through each section and get rect bounding client of section
+    sections.forEach(function(section){
+        const rect = section.getBoundingClientRect();
+        // remove active class from all sections use classList()
+        section.classList.remove("your-active-class");
+        // check
+        if (rect.top >= 0 && rect.top <= window.innerHeight * 0.5) {
+            section.classList.add("your-active-class");
+        }
+    });
+}
+
+
 // Scroll to anchor ID using scrollTO event
 
 
@@ -59,6 +78,7 @@ function createMenu(){
 document.addEventListener("DOMContentLoaded", createMenu);
 
 // Scroll to section on link click
-// Set sections as active
 
+// Set sections as active
+window.addEventListener("scroll", setActive);
 
