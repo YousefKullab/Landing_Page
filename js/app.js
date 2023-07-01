@@ -24,9 +24,6 @@ const sections = document.querySelectorAll("section");
 const navbar_list = document.getElementById("navbar__list");
 
 
-// Helper Functions
-
-
 // Main Functions
 // build the nav
 /*** Setps
@@ -71,6 +68,24 @@ function setActive(){
 
 
 // Scroll to anchor ID using scrollTO event
+/***
+ * Check the event is triggered by an <a> element
+ * Call scroll func with event of this a element
+ * Stop default event
+ * know id of the a element by use event.target
+ * Select the section that have the this id
+ * Go to this section smoothly
+*/
+function scrollToSection(event) {
+    // Stop default event
+    event.preventDefault();
+    // know id of the a element by use event.target
+    const targetId = event.target.getAttribute('href').substring(1);
+    // Select the section that have the this id
+    const targetSection = document.getElementById(targetId);
+    // Go to this section smoothly
+    targetSection.scrollIntoView({ behavior: 'smooth' });
+}
 
 
 // Events
@@ -78,6 +93,13 @@ function setActive(){
 document.addEventListener("DOMContentLoaded", createMenu);
 
 // Scroll to section on link click
+navbar_list.addEventListener("click", function(event) {
+    // Check the event is triggered by an <a> element
+    if (event.target.nodeName === 'A') {
+        // Call scroll func with event of this a element
+        scrollToSection(event);
+    }
+});
 
 // Set sections as active
 window.addEventListener("scroll", setActive);

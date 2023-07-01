@@ -212,6 +212,9 @@ section.your-active-class .landing__container::after {
 section.your-active-class{
     background: linear-gradient(0deg, rgb(28, 219, 127) 0%, rgb(35, 57, 138) 100%);
 }
+section.your-active-class h2{
+    color: #cc1 !important;
+}
 
 /* Section Active Styles Keyframe Animations */
 @keyframes rotate {
