@@ -34,7 +34,3 @@ The website is compatible with modern web browsers such as Chrome, Firefox, and 
 
 © Yousef Kullab
 
-## Acknowledgements
-
-The project was created as part of the [Udacity](https://www.udacity.com/) Front End Web Developer Nanodegree program.
-
