@@ -22,7 +22,9 @@
 // Define Global Variables
 const sections = document.querySelectorAll("section");
 const navbar_list = document.getElementById("navbar__list");
-
+let toggler = document.querySelector(".toggle");
+let nav = document.querySelector(".navbar__menu");
+let close = document.querySelector(".close");
 
 // Main Functions
 // build the nav
@@ -123,9 +125,27 @@ navbar_list.addEventListener("click", function(event) {
     if (event.target.nodeName === 'A') {
         // Call scroll func with event of this a element
         scrollToSection(event);
+        this.parentElement.classList.remove("open");
     }
 });
 
 // Set sections as active
 window.addEventListener("scroll", setActive);
 
+// open the menu of nav on small screens
+toggler.onclick = function(){
+    nav.classList.add("open");
+}
+
+// close the menu of nav on small screens
+close.onclick = function(){
+    this.parentElement.classList.remove("open");
+}
+
+// close the menu of nav on small screens with click Escape key
+document.onkeyup = function(e){
+    // console.log(e);
+    if (e.key === "Escape"){
+        nav.classList.remove("open");
+    }
+}
