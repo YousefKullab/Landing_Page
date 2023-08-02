@@ -1,4 +1,4 @@
-# Landing Page Website
+# Landing Page
 
 This is a landing page website built using HTML, CSS, and JavaScript. It demonstrates how to manipulate the DOM (Document Object Model) using JavaScript to create a dynamic and interactive webpage.
 
